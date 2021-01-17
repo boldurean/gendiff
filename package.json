@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Tool for checking difference between two files.",
+  "main": "index.js",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdnvsy/frontend-project-lvl2.git"
+  },
+  "author": "Vasilii Boldurean",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdnvsy/frontend-project-lvl2/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/bdnvsy/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^7.0.0"
+  }
+}
