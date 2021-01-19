@@ -4,10 +4,10 @@ import {
   keys, has, sortBy, union,
 } from 'lodash-es';
 
-const absolutePath = (filepath) => path.resolve(process.cwd(), filepath);
+export const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
 export const getData = (filename) => {
-  const fileURL = absolutePath(filename);
+  const fileURL = getAbsolutePath(filename);
   const data = fs.readFileSync(fileURL);
   return JSON.parse(data);
 };
