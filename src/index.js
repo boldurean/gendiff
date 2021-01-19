@@ -6,7 +6,7 @@ import {
 
 const absolutePath = (filepath) => path.resolve(process.cwd(), filepath);
 
-const getData = (filename) => {
+export const getData = (filename) => {
   const fileURL = absolutePath(filename);
   const data = fs.readFileSync(fileURL);
   return JSON.parse(data);
