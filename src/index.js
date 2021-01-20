@@ -1,16 +1,7 @@
-import fs from 'fs';
-import path from 'path';
 import {
   keys, has, sortBy, union,
 } from 'lodash-es';
-
-export const getAbsolutePath = (filepath) => path.resolve(process.cwd(), filepath);
-
-export const getData = (filename) => {
-  const fileURL = getAbsolutePath(filename);
-  const data = fs.readFileSync(fileURL);
-  return JSON.parse(data);
-};
+import parce from '../lib/parcer.js';
 
 const comparator = (data1, data2) => {
   const keys1 = keys(data1);
@@ -38,8 +29,8 @@ const comparator = (data1, data2) => {
 };
 
 const genDiff = (filepath1, filepath2) => {
-  const firstFile = getData(filepath1);
-  const secondFile = getData(filepath2);
-  return comparator(firstFile, secondFile);
+  const parsed1 = parce(filepath1);
+  const parsed2 = parce(filepath2);
+  return comparator(parsed1, parsed2);
 };
 export default genDiff;

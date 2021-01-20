@@ -1,17 +1,21 @@
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { join } from 'path';
 import genDiff from '../src';
+import parse from '../lib/parcer.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const getFixturePath = (filename) => join(process.cwd(), '__fixtures__', filename);
 
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+test('genDiff json', async () => {
+  const path1 = getFixturePath('file1.json');
+  const path2 = getFixturePath('file2.json');
+  const expectedPath = getFixturePath('expected.txt');
+  const expected = parse(expectedPath);
+  expect(console.log(genDiff(path1, path2))).toBe(console.log(expected));
+});
 
-test('genDiff', async () => {
-  const filepath1 = getFixturePath('file1.json');
-  const filepath2 = getFixturePath('file2.json');
-  const gendiffPath = getFixturePath('gendiff.txt');
-  const gendiff = await fs.readFileSync(gendiffPath, 'utf-8');
-  expect(console.log(genDiff(filepath1, filepath2))).toBe(console.log(gendiff));
+test('genDiff yml', async () => {
+  const path1 = getFixturePath('file1.yml');
+  const path2 = getFixturePath('file2.yml');
+  const expectedPath = getFixturePath('expected.txt');
+  const expected = parse(expectedPath);
+  expect(console.log(genDiff(path1, path2))).toBe(console.log(expected));
 });
