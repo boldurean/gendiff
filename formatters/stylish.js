@@ -42,11 +42,7 @@ const getStylishOutput = (data, depth = 0) => {
           return `${indent}${space}${key}: ${stringifyData(value, depth)}`;
       }
     });
-  return [
-    '{',
-    ...tree,
-    `${indent}}`,
-  ].join('\n');
+  return ['{', ...tree, `${indent}}`].join('\n');
 };
 
 export default getStylishOutput;
