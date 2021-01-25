@@ -25,7 +25,6 @@ const getStylishOutput = (data, depth = 0) => {
       const {
         key, value, status, oldValue, newValue, children,
       } = node;
-
       switch (status) {
         case 'added':
           return `${indent}  + ${key}: ${stringifyData(value, depth)}`;
