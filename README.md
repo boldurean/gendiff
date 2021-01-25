@@ -11,9 +11,11 @@
 A simple tool for comparing two configuration files like .json & .yaml and show the difference
 
 ###You can install these packages by the following command:
+
 ``` 
 make install
 ```
+
 ###The help information
 Outputs usage information The default help option is `-h,--help`.
 ####Example:
