@@ -1,4 +1,4 @@
-#GenDiff
+# GenDiff
 [![Actions Status](https://github.com/bdnvsy/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/bdnvsy/frontend-project-lvl2/actions)
 [![Node CI](https://github.com/bdnvsy/frontend-project-lvl2/workflows/Node%20CI/badge.svg)](https://github.com/bdnvsy/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/de658115abbb5709561e/maintainability)](https://codeclimate.com/github/bdnvsy/frontend-project-lvl2/maintainability)
@@ -6,7 +6,7 @@
 
 
 
-##Description
+## Description
 
 A simple tool for comparing two configuration files like .json & .yaml and show the difference
 
