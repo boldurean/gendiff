@@ -10,19 +10,19 @@
 
 A simple tool for comparing two configuration files like .json & .yaml and show the difference
 
-###You can install these packages by the following command:
+### You can install these packages by the following command:
 
 ``` 
 make install
 ```
 
-###The help information
+### The help information
 Outputs usage information The default help option is `-h,--help`.
-####Example:
+#### Example:
 ```
 gendiff -h 
 ```
-####Will print out:
+#### Will print out:
 
 ```bash
 Usage: gendiff [options] <filepath1> <filepath2>
@@ -38,6 +38,6 @@ Options:
 ```
   gendiff --format stylish file1.json file2.yml
 ```
-####Example: 
+#### Example: 
 
 [![asciicast](https://asciinema.org/a/iYnhibw9dd3jK6lNy0cFWgh1X.svg)](https://asciinema.org/a/iYnhibw9dd3jK6lNy0cFWgh1X)
