@@ -4,18 +4,17 @@ import parse from '../lib/parser.js';
 
 const getFixturePath = (filename) => join(process.cwd(), '__fixtures__', filename);
 
-test('genDiff yml', async () => {
-  const path1 = getFixturePath('file1.yml');
-  const path2 = getFixturePath('file2.yml');
-  const expectedPath = getFixturePath('expected.txt');
-  const expected = parse(expectedPath);
-  expect(console.log(genDiff(path1, path2))).toBe(console.log(expected));
-});
+const expectedOutput = parse(getFixturePath('expected.txt'));
 
-test('nested json', async () => {
-  const path1 = getFixturePath('nested1.json');
-  const path2 = getFixturePath('nested2.json');
-  const expectedPath = getFixturePath('expected_nested.txt');
-  const expected = parse(expectedPath);
-  expect(console.log(genDiff(path1, path2))).toBe(console.log(expected));
+describe.each([
+  ['file1.json', 'file2.json', expectedOutput],
+  ['file1.yml', 'file2.yml', expectedOutput],
+  ['file1.json', 'file2.yml', expectedOutput],
+  ['file1.yml', 'file2.json', expectedOutput],
+])('gendiff %s %s', (a, b, expected) => {
+  test(`returns ${expected}`, () => {
+    const firstFile = getFixturePath(a);
+    const secondFile = getFixturePath(b);
+    expect(genDiff(firstFile, secondFile)).toBe(expected);
+  });
 });
