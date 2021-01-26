@@ -38,6 +38,10 @@ Options:
 ```
   gendiff --format stylish file1.json file2.yml
 ```
-#### Example: 
+#### Stylish output:
 
-[![asciicast](https://asciinema.org/a/iYnhibw9dd3jK6lNy0cFWgh1X.svg)](https://asciinema.org/a/iYnhibw9dd3jK6lNy0cFWgh1X)
+[![asciicast](https://asciinema.org/a/oP00cUzSyyPgNCeFhxkFIm2fk.svg)](https://asciinema.org/a/oP00cUzSyyPgNCeFhxkFIm2fk)
+
+#### Plain output: 
+
+[![asciicast](https://asciinema.org/a/FIxnBjPsdrfTWlHyIW74VcYIF.svg)](https://asciinema.org/a/FIxnBjPsdrfTWlHyIW74VcYIF)
