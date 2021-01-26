@@ -4,17 +4,22 @@ import parse from '../lib/parser.js';
 
 const getFixturePath = (filename) => join(process.cwd(), '__fixtures__', filename);
 
-const expectedOutput = parse(getFixturePath('expected.txt'));
+const expectedStylish = parse(getFixturePath('expectedStylish.txt'));
+const expectedPlain = parse(getFixturePath('expectedPlain.txt'));
 
-describe.each([
-  ['file1.json', 'file2.json', expectedOutput],
-  ['file1.yml', 'file2.yml', expectedOutput],
-  ['file1.json', 'file2.yml', expectedOutput],
-  ['file1.yml', 'file2.json', expectedOutput],
-])('gendiff %s %s', (a, b, expected) => {
-  test(`returns ${expected}`, () => {
-    const firstFile = getFixturePath(a);
-    const secondFile = getFixturePath(b);
-    expect(genDiff(firstFile, secondFile)).toBe(expected);
-  });
+test.each([
+  ['file1.json', 'file2.json', expectedStylish],
+  ['file1.yml', 'file2.json', expectedStylish],
+  ['file1.json', 'file2.yml', expectedStylish],
+  ['file1.yml', 'file2.yml', expectedStylish],
+])('checks stylish output %s %s', (a, b, expected) => {
+  expect(genDiff(getFixturePath(a), getFixturePath(b), 'stylish')).toEqual(expected);
+});
+test.each([
+  ['file1.json', 'file2.json', expectedPlain],
+  ['file1.yml', 'file2.yml', expectedPlain],
+  ['file1.yml', 'file2.json', expectedPlain],
+  ['file1.json', 'file2.yml', expectedPlain],
+])('checks plain output %s %s', (a, b, expected) => {
+  expect(genDiff(getFixturePath(a), getFixturePath(b), 'plain')).toEqual(expected);
 });
