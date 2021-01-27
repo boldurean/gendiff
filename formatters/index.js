@@ -1,8 +1,11 @@
+import getJsonOutput from './json.js';
 import getPlainOutput from './plain.js';
 import getStylishOutput from './stylish.js';
 
 export default (data, type) => {
   switch (type) {
+    case 'json':
+      return getJsonOutput(data);
     case 'stylish':
       return getStylishOutput(data);
     case 'plain':

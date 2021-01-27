@@ -35,9 +35,11 @@ Options:
   -h, --help           output usage information
 ```
 ### Usage
+Available options `stylish, plain,  json`
 ```
   gendiff --format stylish file1.json file2.yml
 ```
+
 #### Stylish output:
 
 [![asciicast](https://asciinema.org/a/oP00cUzSyyPgNCeFhxkFIm2fk.svg)](https://asciinema.org/a/oP00cUzSyyPgNCeFhxkFIm2fk)
@@ -45,3 +47,7 @@ Options:
 #### Plain output: 
 
 [![asciicast](https://asciinema.org/a/FIxnBjPsdrfTWlHyIW74VcYIF.svg)](https://asciinema.org/a/FIxnBjPsdrfTWlHyIW74VcYIF)
+
+#### Json output:
+
+[![asciicast](https://asciinema.org/a/ZdXH2MAr9K6Mpe5CRP7AGx773.svg)](https://asciinema.org/a/ZdXH2MAr9K6Mpe5CRP7AGx773)
