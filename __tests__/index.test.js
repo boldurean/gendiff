@@ -6,8 +6,8 @@ const getFixturePath = (filename) => join(process.cwd(), '__tests__', '__fixture
 
 describe.each([
   ['file1.json', 'file2.json'],
-  ['file1.yml', 'file2.yml'],
-  ['file1.json', 'file2.yml'],
+  ['file1.yml', 'file2.yaml'],
+  ['file1.json', 'file2.yaml'],
 ])('compare two files %s and %s', (a, b) => {
   const file1 = getFixturePath(a);
   const file2 = getFixturePath(b);

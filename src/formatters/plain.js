@@ -14,7 +14,7 @@ const stringifyData = (data) => {
 };
 
 const getPlainOutput = (data, path = '') => data
-  .map((node) => {
+  .flatMap((node) => {
     const {
       key, value, oldValue, newValue, status, children,
     } = node;
@@ -28,10 +28,9 @@ const getPlainOutput = (data, path = '') => data
       case 'nested':
         return getPlainOutput(children, `${path}${key}.`);
       default:
-        return null;
+        return [];
     }
   })
-  .filter((line) => line !== null)
   .join('\n');
 
 export default getPlainOutput;
