@@ -8,10 +8,8 @@ const parse = (filepath) => {
       return JSON.parse(readFile(filepath));
     case '.yml' || '.yaml':
       return yaml.load(readFile(filepath));
-    case '.txt':
-      return readFile(filepath);
     default:
-      throw new Error(`Current extension ${extension} cannot be read, please use files '.json, .yaml, .txt'`);
+      return readFile(filepath);
   }
 };
 

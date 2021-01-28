@@ -24,12 +24,12 @@
   "type": "module",
   "homepage": "https://github.com/bdnvsy/frontend-project-lvl2#readme",
   "dependencies": {
-    "@jest/globals": "^26.6.2",
     "commander": "^7.0.0",
     "js-yaml": "^4.0.0",
     "lodash-es": "^4.17.20"
   },
   "devDependencies": {
+    "@jest/globals": "^26.6.2",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-fp": "^2.3.0",

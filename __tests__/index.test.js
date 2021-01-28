@@ -1,28 +1,21 @@
+import { readFileSync } from 'fs';
 import { join } from 'path';
 import genDiff from '../src';
-import parse from '../lib/parser.js';
 
-const getFixturePath = (filename) => join(process.cwd(), '__fixtures__', filename);
-
-const expectedStylish = parse(getFixturePath('expectedStylish.txt'));
-const expectedPlain = parse(getFixturePath('expectedPlain.txt'));
-const expectedJson = parse(getFixturePath('expectedJson.txt'));
+const getFixturePath = (filename) => join(process.cwd(), '__tests__', '__fixtures__', filename);
 
 const filePairs = [
   ['file1.json', 'file2.json'],
-  ['file1.yml', 'file2.json'],
-  ['file1.json', 'file2.yml'],
   ['file1.yml', 'file2.yml'],
+  ['file1.json', 'file2.yml'],
 ];
 
 describe.each(filePairs)('compare two files %s and %s', (a, b) => {
-  test('Stylish', () => {
-    expect(genDiff(getFixturePath(a), getFixturePath(b), 'stylish')).toEqual(expectedStylish);
-  });
-  test('Plain', () => {
-    expect(genDiff(getFixturePath(a), getFixturePath(b), 'plain')).toEqual(expectedPlain);
-  });
-  test('JSON', () => {
-    expect(genDiff(getFixturePath(a), getFixturePath(b), 'json')).toEqual(expectedJson);
+  const file1 = getFixturePath(a);
+  const file2 = getFixturePath(b);
+  const formats = ['json', 'stylish', 'plain'];
+  test.each(formats)('testing with format %s', (format) => {
+    const expected = readFileSync(getFixturePath(format), 'utf-8');
+    expect(genDiff(file1, file2, format)).toEqual(expected);
   });
 });
