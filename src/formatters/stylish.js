@@ -37,8 +37,10 @@ const getStylishOutput = (data, depth = 0) => {
           ];
         case 'nested':
           return `${indent}${space}${key}: ${getStylishOutput(children, depth + 1)}`;
-        default:
+        case 'unchanged':
           return `${indent}${space}${key}: ${stringifyData(value, depth)}`;
+        default:
+          throw new Error(`Unknown status ${status}`);
       }
     });
   return ['{', ...tree, `${indent}}`].join('\n');

@@ -27,8 +27,10 @@ const getPlainOutput = (data, path = '') => data
         return `Property '${path}${key}' was updated. From ${stringifyData(oldValue)} to ${stringifyData(newValue)}`;
       case 'nested':
         return getPlainOutput(children, `${path}${key}.`);
-      default:
+      case 'unchanged':
         return [];
+      default:
+        throw new Error(`Unknown status type ${status}`);
     }
   })
   .join('\n');
